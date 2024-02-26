@@ -14,41 +14,11 @@ countries = {}
 print(dt.now())
 country_url = ""
 
-for country in formatted_country_url_fragments:
-    country_url = BASE_URL + country
-    response = rq.get(country_url)
-    soup = BeautifulSoup(response.text, "html.parser")
+country_url = BASE_URL + "argentina"
+response = rq.get(country_url)
+soup = BeautifulSoup(response.text, "html.parser")
 
-    geography_div = soup.find("div", {"id" : "geography"})
-    geography_stats_dict = populate_stats.geography_stats(geography_div)
+geography_div = soup.find("div", {"id" : "geography"})
+geography_stats_dict = populate_stats.geography_stats(geography_div)
 
-    people_and_society_div = soup.find("div", {"id" : "people-and-society"})
-    people_and_society_stats_dict = populate_stats.people_and_society_stats(people_and_society_div)
-
-    government_div = soup.find("div", {"id" : "government"})
-    government_stats_dict = populate_stats.government_stats(government_div)
-
-    economy_div = soup.find("div", {"id" : "economy"})
-    economy_stats_dict = populate_stats.economy_stats(economy_div)
-
-    energy_div = soup.find("div", {"id" : "energy"})
-    energy_stats_dict = populate_stats.energy_stats(energy_div)
-
-    communications_div = soup.find("div", {"id" : "communications"})
-    communications_stats_dict = populate_stats.communications_stats(communications_div)
-
-    countries = populate_stats.populate_countries_dict(countries, country, official_country_names, geography_stats_dict, people_and_society_stats_dict, government_stats_dict, economy_stats_dict, energy_stats_dict, communications_stats_dict)
-    print(f'Finished {country}')
-
-for country in countries:
-    # print(f'{country} : {countries[country]}')
-    # if number of empty values is greater than 3, remove that country from the dictionary
-    if len(countries[country]) - countries[country].count("") > 3:
-        countries.pop(country)
-        print(f"Removed {country} from the dictionary")
-
-print("Converting to dataframe and exporting to csv...")
-countries_df = pd.DataFrame(countries)
-countries_df = countries_df.transpose()
-
-countries_df.to_csv("countries.csv")
+print(geography_stats_dict)
