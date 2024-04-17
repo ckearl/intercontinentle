@@ -11,15 +11,15 @@ function App() {
   const [showMap, setShowMap] = useState(true);
   const [showCountryList, setShowCountryList] = useState(false);
   return (
-    <div className="App">
-      <CountryList showCountryList={showCountryList} />
-      <Header
-        showMap={showMap}
-        setShowMap={setShowMap}
-        setShowCountryList={setShowCountryList}
-        showCountryList={showCountryList}
-      />
-      <div className="game-container">
+    <div className="container-fluid d-flex ">
+      <div className="w-100">
+        <CountryList showCountryList={showCountryList} />
+        <Header
+          showMap={showMap}
+          setShowMap={setShowMap}
+          setShowCountryList={setShowCountryList}
+          showCountryList={showCountryList}
+        />
         <GameInputComponent showMap={showMap} />
       </div>
     </div>

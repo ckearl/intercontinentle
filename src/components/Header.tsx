@@ -23,8 +23,8 @@ function Header({ showMap, setShowMap, setShowCountryList, showCountryList }: TH
   }
   return (
     <>
-      <header className="App-header saira">
-        <div className="app-settings">
+      <header className="d-flex justify-content-around align-items-center mt-5 mb-3 syne-header">
+        <div className="d-flex flex-column">
           <button id="color-setting" onClick={handleDarkModeClick} className="setting-button">
             Dark Mode
           </button>
@@ -35,7 +35,9 @@ function Header({ showMap, setShowMap, setShowCountryList, showCountryList }: TH
             Show Country List
           </button>
         </div>
-        <h1>intercontinentle</h1>
+        <h1 className="" style={{ color: "#133c55", fontSize: "4.5rem" }}>
+          intercontinentle
+        </h1>
         <div className="header-spacer">Spacer</div>
       </header>
     </>

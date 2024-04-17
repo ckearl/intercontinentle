@@ -128,14 +128,14 @@ function GameInputComponent({ showMap }: { showMap: boolean }) {
   }, [correctCountryData]);
 
   return (
-    <>
-      <div className="game-input-component" data-testid="game-input-component">
+    <div className="d-flex justify-content-center">
+      <div className="w-75">
         {showMap ? (
           <Map submitGuessHandler={submitGuessHandler} />
         ) : (
           <form onSubmit={(e) => submitGuessHandler(inputValue, e)}>
-            <div className="form-container">
-              <div className="input-box-wrapper">
+            <div className="d-flex mb-5 pb-3">
+              <div className="w-75 position-relative">
                 <input
                   type="text"
                   placeholder="Enter country"
@@ -160,29 +160,31 @@ function GameInputComponent({ showMap }: { showMap: boolean }) {
                     })}
                 </div>
               </div>
-              <div className="country-submit-button">
-                <input className="guess-submit" type="submit" value="make a guess"></input>
+              <div className="w-25">
+                <div className="ms-3 border border-3 border-black">
+                  <input className="guess-submit" type="submit" value="make a guess"></input>
+                </div>
               </div>
             </div>
           </form>
         )}
 
-        <div className="game-logic-container">
-          <div className="clues-wrapper">
-            <h3>Clues:</h3>
-            {clues.map((clue, i) => (
-              <div key={i} className="clue">
-                <div className="clue-category">{ToolTips[clue.category].Clue}</div>
-                <div className="clue-fact">{clue.fact}</div>
-              </div>
-            ))}
-          </div>
-          <div className="guesses-wrapper">
-            <div className="guess-wrapper">
-              <h3>Guesses:</h3>
-              <ul>
+        <div className="contain-fluid">
+          <div className="d-flex align-items-start justify-content-between w-100">
+            <div className="d-flex flex-column align-items-start">
+              <h3>Clues:</h3>
+              {clues.map((clue, i) => (
+                <div key={i} className="d-flex fs-5 p-1 mt-2">
+                  <div className="fw-bold pe-2">{ToolTips[clue.category].Clue}</div>
+                  <div className="">{clue.fact}</div>
+                </div>
+              ))}
+            </div>
+            <div className="fs-4">
+              <h3 className="text-end">Guesses:</h3>
+              <ul className="list-unstyled">
                 {userGuesses.map((entry, i) => (
-                  <li key={i} className={entry.isCorrect ? "correct" : "incorrect"}>
+                  <li key={i} className=" text-end">
                     {entry.value}
                   </li>
                 ))}
@@ -192,7 +194,7 @@ function GameInputComponent({ showMap }: { showMap: boolean }) {
         </div>
       </div>
       <CountryModal correctCountryData={correctCountryData} />
-    </>
+    </div>
   );
 }
 

@@ -1,12 +1,16 @@
 ### Bugs
 
 - Success Modal spacing
+-
+- map input mode button doesn't change names
+- map doesn't work when you click greenland
 
 ### TODO
 
 - Success Modal buttons (start over, end)
 - View all countries button
-- Animate clue generation?
+- Animate clue appearance
+- text and map inputs always present?
 
 ### Feedback
 

@@ -1,29 +1,5 @@
 /* GameInputComponent.css */
 
-li {
-  margin-bottom: 5px;
-}
-
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-
-.clue {
-  display: flex;
-  color: var(--body-text);
-  font-size: 1.2rem;
-  padding: 5px;
-  margin-top: 10px;
-  text-align: left;
-}
-
-.clue-category {
-  font-weight: bold;
-  padding-right: 0.5rem;
-  text-align: left;
-}
-
 .clues-wrapper {
   display: flex;
   flex-direction: column;
@@ -86,7 +62,8 @@ ul {
 .country-input {
   height: 100%;
   width: 100%;
-  padding: 0.5em;
+  padding: 0.5rem;
+  font-size: 1.2rem;
   background: var(--background);
   border: 3px solid var(--photo);
   text-align: left;
@@ -140,9 +117,6 @@ ul {
 }
 
 .country-submit-button {
-  position: relative;
-  top: 0;
-  right: 0;
   flex: 1 1 auto;
   width: 15%;
   min-width: 10rem;
@@ -154,35 +128,12 @@ ul {
   transition: background-image 0.7s ease;
 }
 
-.guess-submit::before {
-  position: absolute;
-  content: "";
-  top: 0;
-  color: var(--photo);
-  right: 0;
-  bottom: 0;
-  left: 0;
-  z-index: -1;
-  background-image: radial-gradient(
-    circle,
-    rgba(var(--accent-rgb), 0.5) 0%,
-    rgba(var(--body-text-rgb), 0.5) 100%
-  );
-  transition: opacity 0.5s ease;
-  opacity: 0;
-}
-
-.guess-submit:hover::before {
-  opacity: 1;
-}
-
 .guess-submit {
-  position: relative;
-  font-size: 1.2rem;
-  color: var(--header-text);
-  padding: 0.5rem;
   width: 100%;
   height: 100%;
+  padding: 0.5rem;
+  font-size: 1.2rem;
+  color: var(--header-text);
   background: transparent;
   border: none;
 }
